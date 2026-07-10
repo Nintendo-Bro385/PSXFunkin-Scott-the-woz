@@ -11,7 +11,9 @@ SRCS = src/main.c \
        src/menu.c \
        src/stage.c \
        src/save.c \
+       src/pause.c \
        src/psx/psx.c \
+       src/psx/str.c \
        src/psx/io.c \
        src/psx/gfx.c \
        src/psx/audio.c \
@@ -26,42 +28,44 @@ SRCS = src/main.c \
        src/stage/week5.c \
        src/stage/week6.c \
        src/stage/week7.c \
-       src/stage/bg.c \
-       src/stage/nerves.c \
        src/animation.c \
        src/character.c \
        src/character/bf.c \
+       src/character/bfcar.c \
        src/character/bfweeb.c \
        src/character/speaker.c \
        src/character/dad.c \
        src/character/spook.c \
+       src/character/monster.c \
        src/character/pico.c \
        src/character/mom.c \
        src/character/xmasbf.c \
+       src/character/xmasgf.c \
        src/character/xmasp.c \
+       src/character/monsterx.c \
        src/character/senpai.c \
        src/character/senpaim.c \
        src/character/spirit.c \
        src/character/tank.c \
        src/character/gf.c \
        src/character/gfweeb.c \
-       src/character/gfscott.c \
        src/character/clucky.c \
-       src/character/scott.c \
-       src/character/scottn.c \
-       src/character/bfm.c \
-       src/character/scottm.c \
-       src/character/gfm.c \
+       src/character/mbf.c \
+       src/character/mgf.c \
+       src/character/djbf.c \
+       src/character/ddr.c \
        src/object.c \
        src/object/combo.c \
        src/object/splash.c \
+       src/psn00b/vlc.c \
+       src/psn00b/vlc2.s \
        mips/common/crt0/crt0.s
 
 CPPFLAGS += -Wall -Wextra -pedantic -mno-check-zero-division
 LDFLAGS += -Wl,--start-group
 # TODO: remove unused libraries
 LDFLAGS += -lapi
-#LDFLAGS += -lc
+LDFLAGS += -lc
 LDFLAGS += -lc2
 LDFLAGS += -lcard
 LDFLAGS += -lcd
@@ -74,7 +78,7 @@ LDFLAGS += -lgpu
 #LDFLAGS += -lgun
 #LDFLAGS += -lhmd
 #LDFLAGS += -lmath
-#LDFLAGS += -lmcrd
+LDFLAGS += -lmcrd
 #LDFLAGS += -lmcx
 LDFLAGS += -lpad
 LDFLAGS += -lpress

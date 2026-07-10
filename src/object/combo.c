@@ -35,7 +35,8 @@ boolean Obj_Combo_Tick(Object *obj)
 			FIXED_DEC(80,1),
 			(FIXED_DEC(32,1) * clipp) >> 4
 		};
-		Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.camera.bzoom);
+		if(!stage.prefs.onlyarrows)
+			Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.camera.bzoom);
 		
 		//Apply gravity
 		this->hy += FIXED_MUL(this->hv, timer_dt);
@@ -65,7 +66,8 @@ boolean Obj_Combo_Tick(Object *obj)
 			FIXED_DEC(60,1),
 			(FIXED_DEC(24,1) * clipp) >> 4
 		};
-		Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.camera.bzoom);
+		if(!stage.prefs.onlyarrows)
+			Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.camera.bzoom);
 		
 		//Apply gravity
 		this->cy += FIXED_MUL(this->cv, timer_dt);
@@ -101,7 +103,8 @@ boolean Obj_Combo_Tick(Object *obj)
 				FIXED_DEC(24,1),
 				(FIXED_DEC(24,1) * clipp) >> 4
 			};
-			Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.camera.bzoom);
+			if(!stage.prefs.onlyarrows)
+				Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.camera.bzoom);
 			
 			//Apply gravity
 			this->numy[i] += FIXED_MUL(this->numv[i], timer_dt);
@@ -139,7 +142,8 @@ boolean Obj_Combo_Tick_Weeb(Object *obj)
 			FIXED_DEC(70,1),
 			(FIXED_DEC(22,1) * clipp) >> 4
 		};
-		Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.camera.bzoom);
+		if(!stage.prefs.onlyarrows)
+			Stage_DrawTex(&stage.tex_hud0, &hit_src, &hit_dst, stage.camera.bzoom);
 		
 		//Apply gravity
 		this->hy += FIXED_MUL(this->hv, timer_dt) >> 1;
@@ -169,7 +173,8 @@ boolean Obj_Combo_Tick_Weeb(Object *obj)
 			FIXED_DEC(46,1),
 			(FIXED_DEC(22,1) * clipp) >> 4
 		};
-		Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.camera.bzoom);
+		if(!stage.prefs.onlyarrows)
+			Stage_DrawTex(&stage.tex_hud0, &combo_src, &combo_dst, stage.camera.bzoom);
 		
 		//Apply gravity
 		this->cy += FIXED_MUL(this->cv, timer_dt) >> 1;
@@ -205,7 +210,8 @@ boolean Obj_Combo_Tick_Weeb(Object *obj)
 				FIXED_DEC(11,1),
 				(FIXED_DEC(12,1) * clipp) >> 4
 			};
-			Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.camera.bzoom);
+			if(!stage.prefs.onlyarrows)
+				Stage_DrawTex(&stage.tex_hud0, &num_src, &num_dst, stage.camera.bzoom);
 			
 			//Apply gravity
 			this->numy[i] += FIXED_MUL(this->numv[i], timer_dt) >> 1;
@@ -232,28 +238,27 @@ Obj_Combo *Obj_Combo_New(fixed_t x, fixed_t y, u8 hit_type, u16 combo)
 	Obj_Combo *this = (Obj_Combo*)Mem_Alloc(sizeof(Obj_Combo));
 	if (this == NULL)
 		return NULL;
-	
 	//Set object functions and position
 	if (stage.stage_id >= StageId_6_1 && stage.stage_id <= StageId_6_3)
 	{
 		//Pixel combo
 		this->obj.tick = Obj_Combo_Tick_Weeb;
-		if ((x >= 0) ^ (stage.mode < StageMode_2P))
-			this->x = FIXED_DEC(-70,1) - FIXED_DEC(SCREEN_WIDEADD,8);
+		if ((x >= 0) ^ (stage.prefs.mode < StageMode_2P))
+			this->x = FIXED_DEC(-20,1) - FIXED_DEC(SCREEN_WIDEADD,8);
 		else
 			this->x = FIXED_DEC(0,1) + FIXED_DEC(SCREEN_WIDEADD,8);
-		y = FIXED_DEC(44,1);
+		y = FIXED_DEC(-3,1);
 	}
 	else
 	{
 		//Regular combo
 		this->obj.tick = Obj_Combo_Tick;
-		if ((x >= 0) ^ (stage.mode < StageMode_2P))
-			this->x = FIXED_DEC(-112,1) - FIXED_DEC(SCREEN_WIDEADD,4);
+		if ((x >= 0) ^ (stage.prefs.mode < StageMode_2P))
+			this->x = FIXED_DEC(0,1) - FIXED_DEC(SCREEN_WIDEADD,4);
 		else
 			this->x = FIXED_DEC(30,1) + FIXED_DEC(SCREEN_WIDEADD,4);
-		y = FIXED_DEC(73,1);
-	}
+		y = FIXED_DEC(-13,1);
+	}	
 	this->obj.free = Obj_Combo_Free;
 	
 	//Setup hit type

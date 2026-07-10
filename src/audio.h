@@ -25,12 +25,11 @@ typedef enum
 	XA_Week5B, //WEEK5B.XA
 	XA_Week6A, //WEEK6A.XA
 	XA_Week6B, //WEEK6B.XA
+	XA_Week6C, //WEEK6C.XA
 	XA_Week7A, //WEEK7A.XA
 	XA_Week7B, //WEEK7B.XA
-	XA_KapiA,  //KAPIA.XA
-	XA_KapiB,  //KAPIB.XA
-	XA_ClwnA,  //CLWNA.XA
-	XA_ClwnB,  //CLWNB.XA
+	XA_PortalA,  //PortalA.XA
+	XA_Billy,  //Billy.XA
 	
 	XA_Max,
 } XA_File;
@@ -40,6 +39,8 @@ typedef enum
 	//MENU.XA
 	XA_GettinFreaky, //Gettin' Freaky
 	XA_GameOver,     //Game Over
+	XA_Freeky,  //Tutorial
+	XA_Ludum,  //Tutorial
 	//WEEK1A.XA
 	XA_Bopeebo, //Bopeebo
 	XA_Fresh,   //Fresh
@@ -57,6 +58,7 @@ typedef enum
 	XA_Philly, //Philly
 	//WEEK3B.XA
 	XA_Blammed, //Blammed
+	XA_Results, //Blammed
 	//WEEK4A.XA
 	XA_SatinPanties, //Satin Panties
 	XA_High,         //High
@@ -73,23 +75,21 @@ typedef enum
 	XA_Roses,  //Roses
 	//WEEK6B.XA
 	XA_Thorns, //Thorns
+	//WEEK6C.XA
+	XA_Gameoverpixel, //Game over pixel
+	XA_Lunchbox1, //Lunchbox
+	XA_Lunchbox2, //Lunchbox scary
 	//WEEK7A.XA
 	XA_Ugh,  //Ugh
 	XA_Guns, //Guns
 	//WEEK7B.XA
 	XA_Stress, //Stress
-	//KAPIA.XA
-	XA_Wocky,     //Wocky
-	XA_Beathoven, //Beathoven
-	//KAPIB.XA
-	XA_Hairball, //Hairball
-	XA_Nyaw,     //Nyaw
-	//CLWNA.XA
-	XA_ImprobableOutset, //Improbable Outset
-	XA_Madness,          //Madness
-	//CLWNB.XA
-	XA_Hellclown,   //Hellclown
-	XA_Expurgation, //Expurgation
+	//PortalA.XA
+	XA_Stillalive,//Still alive
+	XA_Senbonzakura, //Beathoven
+	//Billy.XA
+	XA_Sillybilly, //Beathoven
+
 	
 	XA_TrackMax,
 } XA_Track;
@@ -100,6 +100,7 @@ void Audio_Quit(void);
 void Audio_PlayXA_Track(XA_Track track, u8 volume, u8 channel, boolean loop);
 void Audio_SeekXA_Track(XA_Track track);
 void Audio_PauseXA(void);
+void Audio_ResumeXA(void);
 void Audio_StopXA(void);
 void Audio_ChannelXA(u8 channel);
 s32 Audio_TellXA_Sector(void);

@@ -25,7 +25,9 @@ typedef enum
 	CharAnim_Down,  CharAnim_DownAlt,
 	CharAnim_Up,    CharAnim_UpAlt,
 	CharAnim_Right, CharAnim_RightAlt,
-	
+	CharAnim_UnGrow, CharAnim_UnShrink,
+	CharAnim_Sing,
+
 	CharAnim_Max //Max standard/shared animation
 } CharAnim;
 
@@ -43,17 +45,18 @@ typedef struct Character
 	void (*tick)(struct Character*);
 	void (*set_anim)(struct Character*, u8);
 	void (*free)(struct Character*);
-	
+
 	//Position
 	fixed_t x, y;
-	
+
 	//Character information
 	CharSpec spec;
 	u8 health_i; //hud1.tim
 	fixed_t focus_x, focus_y, focus_zoom;
-	
+
 	//Animation state
 	Animatable animatable;
+	Animatable animatable2;
 	fixed_t sing_end;
 	u16 pad_held;
 } Character;
@@ -63,6 +66,8 @@ void Character_Free(Character *this);
 void Character_Init(Character *this, fixed_t x, fixed_t y);
 void Character_DrawParallax(Character *this, Gfx_Tex *tex, const CharFrame *cframe, fixed_t parallax);
 void Character_Draw(Character *this, Gfx_Tex *tex, const CharFrame *cframe);
+void Character_DrawCol(Character *this, Gfx_Tex *tex, const CharFrame *cframe, u8 r, u8 g, u8 b);
+void Character_DrawParallaxCol(Character *this, Gfx_Tex *tex, const CharFrame *cframe, fixed_t parallax, u8 r, u8 g, u8 b);
 
 void Character_CheckStartSing(Character *this);
 void Character_CheckEndSing(Character *this);

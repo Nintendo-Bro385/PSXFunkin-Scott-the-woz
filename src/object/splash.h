@@ -15,10 +15,10 @@ typedef struct
 {
 	//Object base structure
 	Object obj;
-	
+
 	//Splash state
 	u8 colour;
-	
+
 	fixed_t x, y, xsp, ysp, size, sin, cos;
 } Obj_Splash;
 

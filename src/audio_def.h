@@ -8,17 +8,19 @@ typedef struct
 
 static const XA_TrackDef xa_tracks[] = {
 	//MENU.XA
-	{XA_Menu, XA_LENGTH(14500)}, //XA_GettinFreaky
+	{XA_Menu, XA_LENGTH(11295)}, //XA_GettinFreaky
 	{XA_Menu, XA_LENGTH(3840)},  //XA_GameOver
+	{XA_Menu, XA_LENGTH(11295)}, //XA_Freeky
+	{XA_Menu, XA_LENGTH(3700)}, //XA_Ludum
 	//WEEK1A.XA
-	{XA_Week1A, XA_LENGTH(15500)}, //XA_Bopeebo
-	{XA_Week1A, XA_LENGTH(10900)}, //XA_Fresh
+	{XA_Week1A, XA_LENGTH(7685)}, //XA_Bopeebo7685
+	{XA_Week1A, XA_LENGTH(8000)}, //XA_Fresh
 	//WEEK1B.XA
-	{XA_Week1B, XA_LENGTH(10700)}, //XA_Dadbattle
+	{XA_Week1B, XA_LENGTH(8667)}, //XA_Dadbattle
 	{XA_Week1B, XA_LENGTH(6800)}, //XA_Tutorial
 	//WEEK2A.XA
-	{XA_Week2A, XA_LENGTH(12000)}, //XA_Spookeez
-	{XA_Week2A, XA_LENGTH(6400)}, //XA_South
+	{XA_Week2A, XA_LENGTH(9923)}, //XA_Spookeez
+	{XA_Week2A, XA_LENGTH(8880)}, //XA_South
 	//WEEK2B.XA
 	{XA_Week2B, XA_LENGTH(17778)}, //XA_Monster
 	{XA_Week2B, XA_LENGTH(11000)}, //XA_Clucked
@@ -27,6 +29,7 @@ static const XA_TrackDef xa_tracks[] = {
 	{XA_Week3A, XA_LENGTH(10000)}, //XA_Philly
 	//WEEK3B.XA
 	{XA_Week3B, XA_LENGTH(10700)}, //XA_Blammed
+	{XA_Week3B, XA_LENGTH(4400)}, //XA_Results
 	//WEEK4A.XA
 	{XA_Week4A, XA_LENGTH(9300)},  //XA_SatinPanties
 	{XA_Week4A, XA_LENGTH(10300)}, //XA_High
@@ -43,23 +46,21 @@ static const XA_TrackDef xa_tracks[] = {
 	{XA_Week6A, XA_LENGTH(8928)}, //XA_Roses
 	//WEEK6B.XA
 	{XA_Week6B, XA_LENGTH(10298)}, //XA_Thorns
+	//WEEK6C.XA
+	{XA_Week6C, XA_LENGTH(7600)}, //XA_Gameoverpixel
+	{XA_Week6C, XA_LENGTH(2900)}, //XA_Lunchbox1
+	{XA_Week6C, XA_LENGTH(1100)}, //XA_Lunchbox2
 	//WEEK7A.XA
 	{XA_Week7A, XA_LENGTH(8493)},  //XA_Ugh
 	{XA_Week7A, XA_LENGTH(13866)}, //XA_Guns
 	//WEEK7B.XA
 	{XA_Week7B, XA_LENGTH(12200)}, //XA_Stress
 	//KAPIA.XA
-	{XA_KapiA, XA_LENGTH(12138)}, //XA_Wocky
-	{XA_KapiA, XA_LENGTH(12000)}, //XA_Beathoven
-	//KAPIB.XA
-	{XA_KapiB, XA_LENGTH(17159)}, //XA_Hairball
-	{XA_KapiB, XA_LENGTH(15157)}, //XA_Nyaw
-	//CLWNA.XA
-	{XA_ClwnA, XA_LENGTH(10740)}, //XA_ImprobableOutset
-	{XA_ClwnA, XA_LENGTH(15169)}, //XA_Madness
-	//CLWNB.XA
-	{XA_ClwnB, XA_LENGTH(21886)}, //XA_Hellclown
-	{XA_ClwnB, XA_LENGTH(19550)}, //XA_Expurgation
+	{XA_PortalA, XA_LENGTH(17600)}, //XA_Still alive
+	{XA_PortalA, XA_LENGTH(24400)}, //XA_Senbonzakura
+	//Billy.xa
+	{XA_Billy, XA_LENGTH(37500)}, //XA_Sillybilly
+
 };
 
 static const char *xa_paths[] = {
@@ -76,12 +77,11 @@ static const char *xa_paths[] = {
 	"\\MUSIC\\WEEK5B.XA;1", //XA_Week5B
 	"\\MUSIC\\WEEK6A.XA;1", //XA_Week6A
 	"\\MUSIC\\WEEK6B.XA;1", //XA_Week6B
+	"\\MUSIC\\WEEK6C.XA;1", //XA_Week6C
 	"\\MUSIC\\WEEK7A.XA;1", //XA_Week7A
 	"\\MUSIC\\WEEK7B.XA;1", //XA_Week7B
-	"\\MUSIC\\KAPIA.XA;1",  //XA_KapiA
-	"\\MUSIC\\KAPIB.XA;1",  //XA_KapiB
-	"\\MUSIC\\CLWNA.XA;1",  //XA_ClwnA
-	"\\MUSIC\\CLWNB.XA;1",  //XA_ClwnB
+	"\\MUSIC\\PORTALA.XA;1",  //XA_PortalA
+	"\\MUSIC\\BILLY.XA;1",  //XA_Billy
 	NULL,
 };
 
@@ -95,6 +95,8 @@ static const XA_Mp3 xa_mp3s[] = {
 	//MENU.XA
 	{"freaky", false},   //XA_GettinFreaky
 	{"gameover", false}, //XA_GameOver
+	{"freeky", false}, //XA_Freeky
+	{"ludum", false}, //XA_Ludum
 	//WEEK1A.XA
 	{"bopeebo", true}, //XA_Bopeebo
 	{"fresh", true},   //XA_Fresh
@@ -112,6 +114,7 @@ static const XA_Mp3 xa_mp3s[] = {
 	{"philly", true}, //XA_Philly
 	//WEEK3B.XA
 	{"blammed", true}, //XA_Blammed
+	{"results", false}, //XA_Blammed
 	//WEEK4A.XA
 	{"satinpanties", true}, //XA_SatinPanties
 	{"high", true},         //XA_High
@@ -128,23 +131,20 @@ static const XA_Mp3 xa_mp3s[] = {
 	{"roses", true},  //XA_Roses
 	//WEEK6B.XA
 	{"thorns", true}, //XA_Thorns
+	//WEEK6C.XA
+	{"gameoverpixel", false}, //XA_Gameoverpixel
+	{"lunchbox1", false}, //XA_Lunchbox1
+	{"lunchbox2", false}, //XA_Lunchbox2
 	//WEEK7A.XA
 	{"ugh", true},  //XA_Ugh
 	{"guns", true}, //XA_Guns
 	//WEEK7B.XA
 	{"stress", true}, //XA_Stress
-	//KAPIA.XA
-	{"wocky", true},     //XA_Wocky
-	{"beathoven", true}, //XA_Beathoven
-	//KAPIB.XA
-	{"hairball", true}, //XA_Hairball
-	{"nyaw", true},     //XA_Nyaw
-	//CLWNA.XA
-	{"improbableoutset", true}, //XA_ImprobableOutset
-	{"madness", true}, //XA_Madness
-	//CLWNB.XA
-	{"hellclown", true}, //XA_Hellclown
-	{"expurgation", true}, //XA_Expurgation
+	//PORTALA.XA
+	{"stillalive", true},     //XA_Stillalive
+	{"senbonzakura", false}, //XA_Beathoven
+	//Billy.xa
+	{"sillybilly", true}, //XA_Beathoven
 	
 	{NULL, false}
 };

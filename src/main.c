@@ -12,6 +12,7 @@
 #include "audio.h"
 #include "pad.h"
 #include "network.h"
+#include "str.h"
 
 #include "menu.h"
 #include "stage.h"
@@ -44,7 +45,7 @@ void ErrorLock(void)
 #undef MEM_IMPLEMENTATION
 
 #ifndef PSXF_STDMEM
-static u8 malloc_heap[0x190000];
+static u8 malloc_heap[0x1A0000];
 #endif
 
 //Entry point
@@ -62,20 +63,17 @@ int main(int argc, char **argv)
 	IO_Init();
 	Audio_Init();
 	Gfx_Init();
+	InitCARD(1);
 	Pad_Init();
-	StartPAD();
+	StartCARD();
+	_bu_init();
 	Network_Init();
-	
+	Str_Init();
 	Timer_Init();
-	
-	//if (readSaveFile() == false)
-		//defaultSettings();
-
-	//make ghost tapping on by default
-	stage.ghost = 1;
 	
 	//Start game
 	gameloop = GameLoop_Menu;
+	Achievement_Init();
 	Menu_Load(MenuPage_Opening);
 	
 	//Game loop

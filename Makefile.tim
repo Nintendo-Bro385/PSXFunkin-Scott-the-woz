@@ -1,24 +1,46 @@
 all: \
 	iso/menu/menu.arc \
-	iso/menu/char/bf.arc \
-	iso/menu/char/scott.arc \
-	iso/menu/char/gfm.arc \
+	iso/menu/backgrounds/week.arc \
 	iso/menu/loading.tim \
+	iso/saveicon.tim \
+	iso/saving.tim \
 	iso/font/boldfont.tim \
 	iso/font/arial.tim \
+	iso/font/cdr.tim \
+	iso/font/kata.tim \
 	iso/stage/hud0.tim \
-	iso/stage/hud1.tim \
 	iso/stage/hud0weeb.tim \
+	iso/stage/hud1.tim \
+	iso/stage/hud1ddr.tim \
+	iso/stage/hudc.tim \
+	iso/stage/pixelhud.tim \
+	iso/stage/hud2.tim \
+	iso/stage/hud3.tim \
+	iso/stage/hud4.tim \
+	iso/stage/phud.tim \
+	iso/stage/phud1.tim \
+	iso/stage/sillyhud0.tim \
+	iso/stage/sillyhud1.tim \
+	iso/stage/bluehud.tim \
+	iso/stage/portraits/bf.arc \
+	iso/stage/portraits/senpai.arc \
+	iso/stage/results/results.tim \
+	iso/stage/results/sprites.tim \
 	iso/bf/main.arc \
+	iso/bf/car.arc \
 	iso/bf/dead.arc \
 	iso/bf/weeb.arc \
 	iso/dad/main.arc \
 	iso/spook/main.arc \
+	iso/monster/main.arc \
 	iso/pico/main.arc \
 	iso/mom/main.arc \
 	iso/mom/hair.tim \
 	iso/bf/xmas.arc \
+	iso/gf/xmas.arc \
+	iso/gf/light.arc \
 	iso/xmasp/main.arc \
+	iso/monsterx/main.arc \
 	iso/senpai/main.arc \
 	iso/senpaim/main.arc \
 	iso/spirit/main.arc \
@@ -30,9 +52,10 @@ all: \
 	iso/gf/weeb.arc \
 	iso/gf/speaker.tim \
 	iso/clucky/main.arc \
-	iso/scott/main.arc \
-	iso/scottn/main.arc \
-	iso/gfscott/main.arc \
+	iso/menu/characters/mbf.arc \
+	iso/menu/characters/mgf.arc \
+	iso/menu/characters/djbf/djbf.arc \
+	iso/ddrarrows/ddr.arc \
 	iso/week1/back.arc \
 	iso/week2/back.arc \
 	iso/week3/back.arc \
@@ -42,8 +65,6 @@ all: \
 	iso/week6/back.arc \
 	iso/week6/back3.tim \
 	iso/week7/back.arc \
-	iso/bg/back.arc \
-	iso/nerves/back.arc
 
 iso/%.tim: iso/%.png
 	tools/funkintimconv/funkintimconv $@ $<
@@ -52,24 +73,33 @@ iso/%.arc:
 	tools/funkinarcpak/funkinarcpak $@ $^
 
 # Menu
-iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim
+iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/options/options.tim iso/menu/title.tim iso/menu/hud1.tim iso/menu/hud2.tim
 
-iso/menu/char/bf.arc: iso/menu/char/bf.tim
+# Character portraits
+iso/stage/portraits/bf.arc: iso/stage/portraits/bf.tim
+iso/stage/portraits/senpai.arc: iso/stage/portraits/senpai.tim
 
-iso/menu/char/scott.arc: iso/menu/char/scott.tim
-
-iso/menu/char/gfm.arc: iso/menu/char/gfm0.tim iso/menu/char/gfm1.tim
+iso/menu/backgrounds/week.arc: iso/menu/backgrounds/week0.tim iso/menu/backgrounds/week1.tim iso/menu/backgrounds/week2.tim iso/menu/backgrounds/week3.tim iso/menu/backgrounds/week4.tim iso/menu/backgrounds/week5.tim iso/menu/backgrounds/week6.tim iso/menu/backgrounds/week7.tim
 
 # BF
 iso/bf/main.arc: iso/bf/bf0.tim iso/bf/bf1.tim iso/bf/bf2.tim iso/bf/bf3.tim iso/bf/bf4.tim iso/bf/bf5.tim iso/bf/bf6.tim iso/bf/dead0.tim
 iso/bf/dead.arc: iso/bf/dead1.tim iso/bf/dead2.tim iso/bf/retry.tim
-iso/bf/weeb.arc: iso/bf/weeb0.tim iso/bf/weeb1.tim
+iso/bf/weeb.arc: iso/bf/weeb0.tim iso/bf/weeb1.tim iso/bf/weeb2.tim iso/bf/weeb3.tim iso/bf/weeb4.tim iso/bf/weeb5.tim
+
+# BF Car
+iso/bf/car.arc: iso/bf/bfcar0.tim iso/bf/bfcar1.tim iso/bf/bfcar2.tim iso/bf/bfcar3.tim iso/bf/bfcar4.tim iso/bf/bfcar5.tim iso/bf/bfcar6.tim iso/bf/bfcar7.tim iso/bf/bf5.tim iso/bf/bf6.tim iso/bf/dead0.tim iso/bf/dead1.tim iso/bf/dead2.tim iso/bf/retry.tim
 
 # Dad
 iso/dad/main.arc: iso/dad/idle0.tim iso/dad/idle1.tim iso/dad/left.tim iso/dad/down.tim iso/dad/up.tim iso/dad/right.tim
 
 # Spook
 iso/spook/main.arc: iso/spook/idle0.tim iso/spook/idle1.tim iso/spook/idle2.tim iso/spook/left.tim iso/spook/down.tim iso/spook/up.tim iso/spook/right.tim
+
+# Monster
+iso/monster/main.arc: iso/monster/idle0.tim iso/monster/idle1.tim iso/monster/idle2.tim iso/monster/left.tim iso/monster/down.tim iso/monster/up.tim iso/monster/right.tim
+
+# Monster Christimas
+iso/monsterx/main.arc: iso/monsterx/idle0.tim iso/monsterx/idle1.tim iso/monsterx/idle2.tim iso/monsterx/left.tim iso/monsterx/down.tim iso/monsterx/up.tim iso/monsterx/right.tim
 
 # Pico
 iso/pico/main.arc: iso/pico/idle.tim iso/pico/hit0.tim iso/pico/hit1.tim
@@ -78,7 +108,11 @@ iso/pico/main.arc: iso/pico/idle.tim iso/pico/hit0.tim iso/pico/hit1.tim
 iso/mom/main.arc: iso/mom/idle0.tim iso/mom/idle1.tim iso/mom/left.tim iso/mom/down.tim iso/mom/up.tim iso/mom/right.tim
 
 # Xmas BF
-iso/bf/xmas.arc: iso/bf/xmasbf0.tim iso/bf/xmasbf1.tim iso/bf/xmasbf2.tim iso/bf/xmasbf3.tim iso/bf/dead0.tim
+iso/bf/xmas.arc: iso/bf/xmasbf0.tim iso/bf/xmasbf1.tim iso/bf/xmasbf2.tim iso/bf/xmasbf3.tim iso/bf/xmasbf4.tim iso/bf/xmasbf5.tim iso/bf/dead0.tim iso/bf/dead1.tim iso/bf/dead2.tim iso/bf/retry.tim
+
+# Xmas GF
+iso/gf/xmas.arc: iso/gf/xmasgf0.tim iso/gf/xmasgf1.tim iso/gf/xmasgf2.tim
+iso/gf/light.arc: iso/gf/light0.tim iso/gf/light1.tim
 
 # Xmas Parents
 iso/xmasp/main.arc: iso/xmasp/idle0.tim iso/xmasp/idle1.tim iso/xmasp/idle2.tim iso/xmasp/idle3.tim iso/xmasp/lefta0.tim iso/xmasp/lefta1.tim iso/xmasp/leftb0.tim iso/xmasp/leftb1.tim iso/xmasp/downa0.tim iso/xmasp/downa1.tim iso/xmasp/downb0.tim iso/xmasp/downb1.tim iso/xmasp/upa0.tim iso/xmasp/upa1.tim iso/xmasp/upb0.tim iso/xmasp/upb1.tim iso/xmasp/righta0.tim iso/xmasp/righta1.tim iso/xmasp/rightb0.tim iso/xmasp/rightb1.tim
@@ -103,14 +137,17 @@ iso/gf/weeb.arc: iso/gf/weeb0.tim iso/gf/weeb1.tim
 # Clucky
 iso/clucky/main.arc: iso/clucky/idle0.tim iso/clucky/idle1.tim iso/clucky/left.tim iso/clucky/down.tim iso/clucky/up.tim iso/clucky/right.tim
 
-# Scott
-iso/scott/main.arc: iso/scott/idle0.tim iso/scott/idle1.tim iso/scott/left.tim iso/scott/down0.tim iso/scott/down1.tim iso/scott/up.tim iso/scott/right.tim
+# Menu BF
+iso/menu/characters/mbf.arc: iso/menu/characters/menubf.tim
 
-# Scottn
-iso/scottn/main.arc: iso/scottn/idle0.tim iso/scottn/idle1.tim iso/scottn/left.tim iso/scottn/down0.tim iso/scottn/down1.tim iso/scottn/up.tim iso/scottn/right.tim
+# Menu GF
+iso/menu/characters/mgf.arc: iso/menu/characters/menugf0.tim iso/menu/characters/menugf1.tim
 
-# GFS gf scott
-iso/gfscott/main.arc: iso/gfscott/idle0.tim iso/gfscott/idle1.tim iso/gfscott/idle2.tim iso/gfscott/idle3.tim iso/gfscott/idle4.tim iso/gfscott/idle5.tim iso/gfscott/idle6.tim iso/gfscott/idle7.tim iso/gfscott/idle8.tim iso/gfscott/idle9.tim iso/gfscott/idle10.tim iso/gfscott/idle11.tim iso/gfscott/idle12.tim iso/gfscott/idle13.tim iso/gfscott/idle14.tim iso/gfscott/idle15.tim iso/gfscott/idle16.tim iso/gfscott/idle17.tim iso/gfscott/idle18.tim iso/gfscott/idle19.tim
+# Freeplay BF/DJ BF
+iso/menu/characters/djbf/djbf.arc: iso/menu/characters/djbf/idle0.tim iso/menu/characters/djbf/idle1.tim iso/menu/characters/djbf/spin0.tim iso/menu/characters/djbf/spin1.tim iso/menu/characters/djbf/select0.tim
+
+# DDR
+iso/ddrarrows/ddr.arc: iso/ddrarrows/hud4.tim iso/ddrarrows/hud41.tim iso/ddrarrows/hud42.tim iso/ddrarrows/hud43.tim 
 
 # Week 1
 iso/week1/back.arc: iso/week1/back0.tim iso/week1/back1.tim
@@ -134,8 +171,7 @@ iso/week6/back.arc: iso/week6/back0.tim iso/week6/back1.tim iso/week6/back2.tim
 # Week 7
 iso/week7/back.arc: iso/week7/back0.tim iso/week7/back1.tim iso/week7/back2.tim iso/week7/back3.tim
 
-# Bg
-iso/bg/back.arc: iso/bg/back0.tim iso/bg/back1.tim
-
-# Nerves
-iso/nerves/back.arc: iso/nerves/back0.tim iso/nerves/back1.tim iso/nerves/back2.tim iso/nerves/back3.tim iso/nerves/back4.tim
+# Rule to clean all .arc and .tim files
+clean:
+	echo "Cleaning .arc and .tim files:"
+	find iso -type f \( -name "*.arc" -o -name "*.tim" \) -print -delete
