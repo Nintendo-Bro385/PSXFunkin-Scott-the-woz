@@ -1,15 +1,15 @@
 		{ //StageId_1_1 (Bopeebo)
-		"BOPEEBO",
+		"STUPID NINTENDO GAMES",
 		//Characters
 		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_Scott_New, FIXED_DEC(55,1),  FIXED_DEC(75,1)},
 		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
 
 		//Stage background
 		Back_Week1_New,
 
 		//Song info
-		{FIXED_DEC(1,1),FIXED_DEC(1,1),FIXED_DEC(13,10)},
+		{FIXED_DEC(15,10),FIXED_DEC(18,10),FIXED_DEC(23,10)},
 		1, 1,
 		XA_Bopeebo, 0,
 		0, //dialogue check
@@ -19,17 +19,17 @@
 		StageId_1_2, STAGE_LOAD_FLAG
 	},
 	{ //StageId_1_2 (Fresh)
-		"FRESH",
+		"WHY DONT YOU PLAY THEM",
 		//Characters
 		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_Scott_New, FIXED_DEC(55,1),  FIXED_DEC(75,1)},
 		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
 
 		//Stage background
 		Back_Week1_New,
 
 		//Song info
-		{FIXED_DEC(1,1),FIXED_DEC(13,10),FIXED_DEC(18,10)},
+		{FIXED_DEC(18,10),FIXED_DEC(2,1),FIXED_DEC(25,10)},
 		1, 2,
 		XA_Fresh, 2,
 		0, //dialogue check
@@ -39,24 +39,24 @@
 		StageId_1_3, STAGE_LOAD_FLAG
 	},
 	{ //StageId_1_3 (Dadbattle)
-		"DADBATLLE",
+		"BREAKOUT",
 		//Characters
 		{Char_BF_New,    FIXED_DEC(60,1),  FIXED_DEC(100,1)},
-		{Char_Dad_New, FIXED_DEC(-120,1),  FIXED_DEC(100,1)},
+		{Char_Scott_New, FIXED_DEC(55,1),  FIXED_DEC(75,1)},
 		{Char_GF_New,     FIXED_DEC(0,1),  FIXED_DEC(-10,1)},
 
 		//Stage background
 		Back_Week1_New,
 
 		//Song info
-		{FIXED_DEC(13,10),FIXED_DEC(15,10),FIXED_DEC(23,10)},
+		{FIXED_DEC(22,10),FIXED_DEC(26,10),FIXED_DEC(29,10)},
 		1, 3,
 		XA_Dadbattle, 0,
 		0, //dialogue check
 		XA_Clucked, 1, //dialogue song and it's channel
 		{NULL, NULL},
 
-		StageId_1_3, 0
+		StageId_2_1, STAGE_LOAD_FLAG | STAGE_LOAD_PLAYER | STAGE_LOAD_OPPONENT | STAGE_LOAD_GIRLFRIEND
 	},
 	{ //StageId_1_4 (Tutorial)
 		"TUTORIAL",
@@ -80,17 +80,17 @@
 	},
 
 	{ //StageId_2_1 (Spookeez)
-		"SPOOKEEZ",
+		"CLOSING IN",
 		//Characters
 		{Char_BF_New,      FIXED_DEC(56,1),   FIXED_DEC(85,1)},
-		{Char_Spook_New,  FIXED_DEC(-90,1),   FIXED_DEC(85,1)},
+		{Char_Scottn_New, FIXED_DEC(-80,1),  FIXED_DEC(85,1)},
 		{Char_GF_New,       FIXED_DEC(0,1),  FIXED_DEC(-15,1)},
 
 		//Stage background
-		Back_Week2_New,
+		Back_Nerves_New,
 
 		//Song info
-		{FIXED_DEC(1,1),FIXED_DEC(17,10),FIXED_DEC(24,10)},
+		{FIXED_DEC(25,10),FIXED_DEC(28,10),FIXED_DEC(31,10)},
 		2, 1,
 		XA_Spookeez, 0,
 		0, //dialogue check
@@ -100,17 +100,17 @@
 		StageId_2_2, STAGE_LOAD_FLAG
 	},
 	{ //StageId_2_2 (South)
-		"SOUTH",
+		"BIBLE",
 		//Characters
 		{Char_BF_New,      FIXED_DEC(56,1),   FIXED_DEC(85,1)},
-		{Char_Spook_New,  FIXED_DEC(-90,1),   FIXED_DEC(85,1)},
+		{Char_Scott_New,  FIXED_DEC(-90,1),   FIXED_DEC(85,1)},
 		{Char_GF_New,       FIXED_DEC(0,1),  FIXED_DEC(-15,1)},
 
 		//Stage background
 		Back_Week2_New,
 
 		//Song info
-		{FIXED_DEC(11,10),FIXED_DEC(15,10),FIXED_DEC(22,10)},
+		{FIXED_DEC(25,10),FIXED_DEC(25,10),FIXED_DEC(25,10)},
 		2, 2,
 		XA_South, 2,
 		0, //dialogue check

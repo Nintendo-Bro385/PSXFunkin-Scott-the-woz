@@ -52,6 +52,8 @@ all: \
 	iso/gf/weeb.arc \
 	iso/gf/speaker.tim \
 	iso/clucky/main.arc \
+	iso/scott/main.arc \
+	iso/scottn/main.arc \
 	iso/menu/characters/mbf.arc \
 	iso/menu/characters/mgf.arc \
 	iso/menu/characters/djbf/djbf.arc \
@@ -65,6 +67,7 @@ all: \
 	iso/week6/back.arc \
 	iso/week6/back3.tim \
 	iso/week7/back.arc \
+	iso/nerves/back.arc
 
 iso/%.tim: iso/%.png
 	tools/funkintimconv/funkintimconv $@ $<
@@ -170,6 +173,9 @@ iso/week6/back.arc: iso/week6/back0.tim iso/week6/back1.tim iso/week6/back2.tim
 
 # Week 7
 iso/week7/back.arc: iso/week7/back0.tim iso/week7/back1.tim iso/week7/back2.tim iso/week7/back3.tim
+
+# Nerves
+iso/nerves/back.arc: iso/nerves/back0.tim iso/nerves/back1.tim iso/nerves/back2.tim iso/nerves/back3.tim iso/nerves/back4.tim
 
 # Rule to clean all .arc and .tim files
 clean:

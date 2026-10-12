@@ -214,6 +214,11 @@
 				
 				<file name = "8.3h.cht" type = "data" source = "iso/chart/silly-billy-hard.json.cht"/>
 			</dir>
+
+			<dir name = "nerves">
+				<!-- Background art -->
+				<file name = "gosha.arc" type = "data" source = "iso/nerves/back.arc"/>
+			</dir>
 			
 			
 			<!-- Character Portrait assets -->
@@ -274,6 +279,10 @@
 				
 				<!-- Clucky assets -->
 				<file name = "clucky.arc" type = "data" source = "iso/clucky/main.arc"/>
+
+				<!-- Scott assets -->
+				<file name = "scott.arc" type = "data" source = "iso/scott/main.arc"/>
+				<file name = "scottn.arc" type = "data" source = "iso/scottn/main.arc"/>
 				
 				<!-- menu character assets -->
 				<file name = "Mbf.arc" type = "data" source = "iso/menu/characters/mbf.arc"/>

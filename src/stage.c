@@ -133,6 +133,8 @@ static const u8 note_anims[4][3] = {
 #include "character/xmasgf.h"
 #include "character/gfweeb.h"
 #include "character/clucky.h"
+#include "character/scott.h"
+#include "character/scottn.h"
 #include "character/mbf.h"
 #include "character/mgf.h"
 
@@ -144,6 +146,7 @@ static const u8 note_anims[4][3] = {
 #include "stage/week5.h"
 #include "stage/week6.h"
 #include "stage/week7.h"
+#include "stage/nerves.h"
 
 
 static const StageDef stage_defs[StageId_Max] = {
@@ -567,38 +570,52 @@ static void Stage_NoteCheck(PlayerState *this, u8 type)
             return;
         }
     }
-    if (this->character->spec & CHAR_SPEC_MISSANIM)
+    /*if (this->character->spec & CHAR_SPEC_MISSANIM)
     {
             this->character->set_anim(this->character, note_anims[type & 0x3][2]);
             this->score -= 1;
         /*if(stage.prefs.hell==1)
 		{
 			this->health -=1000;
-		}*/
+		}
             this->refresh_score = true;
-    }
+    }*/
 
 
     //Missed a note
     this->arrow_hitan[type & 0x3] = -1;
-        this->refresh_score = true;
 
-        #ifdef PSXF_NETWORK
-            if (stage.prefs.mode >= StageMode_Net1)
-            {
-                //Send note hit packet
-                Packet note_hit;
-                note_hit[0] = PacketType_NoteMiss;
-                note_hit[1] = type & 0x3;
-
-                note_hit[2] = this->score >> 0;
-                note_hit[3] = this->score >> 8;
-                note_hit[4] = this->score >> 16;
-                note_hit[5] = this->score >> 24;
-
-                Network_Send(&note_hit);
-            }
-        #endif
+	if (!stage.prefs.ghost)
+	{
+		if(this->character->spec & CHAR_SPEC_MISSANIM)
+			this->character->set_anim(this->character, note_anims[type & 0x3][2]);
+		else
+			this->character->set_anim(this->character, note_anims[type & 0x3][0]);
+		if(stage.prefs.hell==1)
+			this->health -= 1000;
+		else
+			this->health -= 400;
+		Stage_MissNote(this);
+	}
+	this->score -= 1;
+	this->refresh_score = true;
+		
+		#ifdef PSXF_NETWORK
+			if (stage.mode >= StageMode_Net1)
+			{
+				//Send note hit packet
+				Packet note_hit;
+				note_hit[0] = PacketType_NoteMiss;
+				note_hit[1] = type & 0x3;
+				
+				note_hit[2] = this->score >> 0;
+				note_hit[3] = this->score >> 8;
+				note_hit[4] = this->score >> 16;
+				note_hit[5] = this->score >> 24;
+				
+				Network_Send(&note_hit);
+			}
+		#endif
 }
 
 static void Stage_SustainCheck(PlayerState *this, u8 type)
@@ -1470,7 +1487,6 @@ static void Stage_LoadState(void)
     ObjectList_Free(&stage.objlist_fg);
     ObjectList_Free(&stage.objlist_bg);
 
-    stage.prefs.ghost = true;
     noheadbump = 0;
     //stage.nohud=0;
 
